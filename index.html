@@ -1,0 +1,69 @@
+
+
+<html>
+    <meta charset="utf-8">
+    <head>
+        <title>Atividade 1 - SMARTGRID</title>
+    </head>
+
+    <body>
+        <h1>Atividade 1 - SMARTGRID</h1>
+        <h2>Tema: Análise de rede de 69 barras.</h2>
+
+        <h3>Prof. Dr. Juan Carlos Cebrian Amsifen / Prof. Dr. Helmo Kelis Norales Paredes.</h3>
+        
+        <h4>Grupo: Bruno Oliveira Zarpellon, Caio Henrique Teixeira Alberto e Jéssica de Souza Pereira.</h4>
+        
+        <p><strong>Objetivo:</strong> Descarregar os dados de uma rede de 69 barras utilizando o software OpenDSS com interface no Python. Dessa forma, será feita uma análise dos dados para propor alternativas de melhorias no desempenho da rede.</p>
+        <h4>Análise de fluxo de carga total (24 horas)</h4>
+        <p>Conforme observado abaixo, o fluxo de carga total apresenta um desvio de tensão abaixo do limite mínimo de 5%. Trata-se de um sistema trifásico com as fases organizadas em A, B e C.</p>
+        <img src="images/nos_fase_a.png">
+        <img src="images/Nos_Fase_B.png">
+        <img src="images/Nos_Fase_C.png">
+        <p>Observação: os gráficos comprovam que a carga é equilibrada pois as tensões nos três nós são equivalentes.</p>
+        
+        <h4>Análise de perdas da rede total</h4>
+        <img src="images/Perdas.png">
+        <p>Observação: Conforme as simulações geradas pelo OpenDSS, as linhas que apresentaram maior taxa de perda foram a 6, 7 e 57, sendo esta última com o valor elevado (5,34939 kW) equivalente a 1,61% do valor total. Em relação aos transformadores, pode-se citar o 50 que possui o valor mais elevado (0,14527 kW).</p>
+        
+        <h4>Análise de fluxo de carga horária (medições no intervalo de 1 hora)</h4>
+        <img src="images/tensao_a_pior_caso.png">
+        <img src="images/tensao_b_pior_caso.png">
+        <img src="images/tensao_c_pior_caso.png">
+        <p>Observação: Foram simulados todos os fluxos de carga durante as 24h e observou-se que o intervalo das 20h-21h apresentou a carga mais crítica.</p>
+        
+        <h4>Análise de perdas do fluxo de carga horária</h4>
+        <img src="images/perdas_pior_caso.png">
+        <p>Observação: Conforme as simulações geradas pelo OpenDSS, a linha que apresentou a maior taxa de perda foi a linha 57 com (15,20609 kW) equivalente a 2,76% do valor total. Em relação aos transformadores, pode-se citar o 50 que possui o valor mais elevado (0,41290 kW).</p>
+
+        <h4>Alternativas de melhorias no desempenho da rede</h4>
+        <p>Foram propostas duas altenativas para melhoria do desempenho da rede. A primeira utilizando reguladores de tensão e a segunda inserindo bancos de capacitores.As soluções estão apresentadas abaixo:</p>
+        <p><strong>Reguladores de tensão</strong></p>
+        <p><strong>Rede total</strong></p>
+        <img src="images/Voltage_Profile_Mult_085.png" width="850" height="500" />
+        <p>Observação: A tensão ficou dentro da variação do limite de 5% e as perdas totais da rede reduziram para 3,35 %. Observa-se que existe uma desvantagem nessa alternativa visto que a potência ativa total do sistema é reduzida e pode afetar os consumidores finais.</p>
+        <img src="images/Perdas_Mult_085.png">
+        <p><strong>Carga horária 20h-21h</strong></p>
+        <img src="images/voltage_profile_mult_05.png" width="850" height="500" />
+        <p>Observação: A tensão ficou dentro da variação do limite de 5% e as perdas totais da rede reduziram para 3,05 %. Observa-se que existe uma desvantagem nessa alternativa visto que a potência ativa total do sistema é reduzida pela metade e pode afetar os consumidores finais.</p>
+        <img src="images/perdas_mult_05.png">
+        <p><strong>Banco de capacitores</strong></p>
+        <p><strong>Rede total</strong></p>
+        <img src="images/Voltage_Profile_Capacitor.png" width="850" height="500" />
+        <p>Observação: A tensão ficou dentro da variação, porém ocorre um aumento da mesma na rede em comparação com o estado inicial e também do circuito com reguladores aplicados. </p>
+        <img src="images/Perdas_Capacitor.png">
+        <p>Observação: Ocorre diminuição das perdas no estado inicial, porém a diminuição não é tão alta se comparada a alternativa do regulador de tensão.</p>
+        <p><strong>Carga horária 20h-21h</strong></p>
+        <img src="images/voltage_profile_pior_caso_capacitor.png" width="850" height="500" />
+        <p>Observação: A tensão ficou dentro da variação, porém as perdas da rede não sofreram redução significativa se comparadas a simulação original.</p>
+        <img src="images/perdas_pior_caso_capacitor.png">
+        <h4>Conclusões finais</h4>
+        <p>Através da análise da rede em diversos pontos, pode-se observar que as duas soluções propostas são viáveis tecnicamente e atendem as necessidades do sistema até nos piores horários, mesmo apresentando vantagens e desvantagens. Em relação a alternativa de reguladores de tensão observa-se que as perdas possuem uma redução maior comparada com a alternativa de banco de capacitores, porém diminuindo a potência ativa total da rede, tornando necessário um estudo prévio sobre o impacto desta diminuição nos consumidores finais.</p>
+        <p>A inserção do banco de capacitores mantém a potência ativa da rede porém aumenta a tensão vista por todos os nós. Como este aumento ainda pertence aos 5% a mais permitidos pela norma, não será prejudicial as cargas, contanto que elas não sofram influência da diminuição da corrente. Além disso, no caso do fluxo de carga de 20h-21h não reduz as perdas significativamente, o que pode ser prejudicial para o consumidor final.</p>
+    </body>
+
+</html>
+
+
+
+
